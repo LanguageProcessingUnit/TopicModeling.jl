@@ -34,8 +34,9 @@ function newton_raphson{F <: FloatingPoint}(
     maxiter = 20
     alpha = copy(ini_alpha)
     palpha = zeros(K)
+    t = 0
 
-    for t = 1:maxiter
+    while t < maxiter
         f = M * (digamma(sum(alpha)) - digamma(alpha)) + reshape(sum(digamma(gammas), 1), K) - sum(digamma(sum(gammas, 2)), 1)[1]
         df = M .* trigamma(alpha) - trigamma(sum(alpha)[1])
         alpha += f ./ df
@@ -57,6 +58,7 @@ function newton_raphson{F <: FloatingPoint}(
         end
 
         palpha = alpha
+        t += 1
     end
 
     alpha
