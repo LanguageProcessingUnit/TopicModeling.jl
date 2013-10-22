@@ -47,6 +47,7 @@ function newton_raphson{F <: FloatingPoint}(
             ini_alpha /= 10
             alpha = copy(ini_alpha)
             palph = zeros(K)
+            t = 0
             continue
         end
 
