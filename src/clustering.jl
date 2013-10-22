@@ -1,5 +1,6 @@
 
 
-function cluster(model::LDA, k)
-    kmeans(model.gamma', k)
+function cluster(model::LDA, documents, k)
+    result = kmeans(model.gamma', k)
+    Clustering(documents, result.assignments)
 end

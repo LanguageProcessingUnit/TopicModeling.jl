@@ -12,3 +12,9 @@ type Topic
     words::Vector{Any}
     coeffs::Vector{Any}
 end
+
+
+type Clustering
+    documents
+    clusters
+end
