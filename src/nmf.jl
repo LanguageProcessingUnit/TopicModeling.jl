@@ -4,5 +4,5 @@
 #
 ##############################################################################
 
-nmf(d::DocumentTermMatrix, k, maxiter = 100) = error("Not implemented yet")
-nmf(crps::Corpus, k, maxiter = 100) = error("Not implemented yet")
+nmf(d::DocumentTermMatrix, k) = DimensionalityReduction.nmf(dtm(d, :dense), k)
+nmf(crps::Corpus, k) = nmf(DocumentTermMatrix(crps), k)

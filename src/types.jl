@@ -8,6 +8,16 @@ type LDA{F <: FloatingPoint}
 end
 
 
+# Imported from DimensionalityReduction package
+NMF = DimensionalityReduction.NMF
+#type NMF
+#    W::Matrix{Float64}
+#    H::Matrix{Float64}
+#    iterations::Int
+#    accuracy::Float64
+#end
+
+
 type Topic
     words::Vector{Any}
     coeffs::Vector{Any}

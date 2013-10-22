@@ -34,6 +34,6 @@ include("clustering.jl")
 export lda, nmf, getTopics, cluster
 
 # types
-export LDA, Topic
+export LDA, NMF, Topic
 
 end # module
