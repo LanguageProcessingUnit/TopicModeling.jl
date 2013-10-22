@@ -1,18 +1,23 @@
 
 function perplexity{F <: FloatingPoint, I <: Integer}(
     words::Matrix{I},
-    beta::Matrix{F},
-    gamma::Matrix{F})
+    pw::Matrix{F},
+    pd::Matrix{F})
+    """
+    pw is corresponding to P(w|params): distribution of topics over words.
+    pd is corresponding to P(d|params): distribution of topics over
+    documents.
+    """
 
-    M = size(gamma, 1)
+    M = size(pd, 1)
     s = sum(words)
 
-    egamma = copy(gamma)
+    n_pd = copy(pd)
 
     # Normalize gamma.
     for i = 1:M
-        egamma[i, :] ./= norm(egamma[i, :], 2)
+        n_pd[i, :] ./= norm(n_pd[i, :], 2)
     end
 
-    exp(-sum(words .* log(egamma * beta), 2) / s)
+    exp(-sum(words .* log(n_pd * pw), 2) / s)
 end
