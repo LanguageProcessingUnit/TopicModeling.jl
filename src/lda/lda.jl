@@ -1,10 +1,5 @@
 
 
-include("inference.jl")
-include("estimation.jl")
-include("../measure/perplexity.jl")
-
-
 function ldaimpl{I <: Integer}(words::Matrix{I}, k::I, max_iter::I)
     """
     Train the Latent Dirichlet Allocation model on the corpus of
@@ -18,8 +13,8 @@ function ldaimpl{I <: Integer}(words::Matrix{I}, k::I, max_iter::I)
     (M, V) = size(words)
 
     # We first need to create vectors from our text corpus.
-    phi = zeros(Float32, M, V, k)
-    gam = zeros(Float32, M, k)
+    phi = zeros(Float64, M, V, k)
+    gam = zeros(Float64, M, k)
 
     # Initialize alpha and beta.
     beta = rand(k, V)

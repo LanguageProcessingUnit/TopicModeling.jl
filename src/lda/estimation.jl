@@ -1,6 +1,4 @@
 
-include("newton_raphson.jl")
-
 function parameter_estimation{F <: FloatingPoint}(
     gam::Matrix{F},
     phi::Array{F, 3})
