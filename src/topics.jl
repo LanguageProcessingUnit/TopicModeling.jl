@@ -18,7 +18,7 @@ end
 
 
 function getTopics(model::LDA, terms, nbtopics, topwords)
-    extractFromBeta(model.beta, terms, nbtopics, topwords)
+    extractFromBeta(computeTermScore(model.beta), terms, nbtopics, topwords)
 end
 
 
