@@ -5,7 +5,7 @@ function argsort(x)
 end
 
 
-function getTopics(model, terms, nbtopics, topwords)
+function getTopics(model::LDA, terms, nbtopics, topwords)
 
     topics = {}
     for i = 1:nbtopics
