@@ -2,7 +2,7 @@
 
 include("inference.jl")
 include("estimation.jl")
-include("perplexity.jl")
+include("../measure/perplexity.jl")
 
 
 function ldaimpl{I <: Integer}(words::Matrix{I}, k::I, max_iter::I)
