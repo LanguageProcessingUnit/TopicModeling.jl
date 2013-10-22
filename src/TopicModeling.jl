@@ -11,13 +11,13 @@ using Clustering
 
 # Measures
 include("measure/perplexity.jl")
+include("measure/termscore.jl")
 
 # LDA
 include("lda/lda.jl")
 include("lda/estimation.jl")
 include("lda/inference.jl")
 include("lda/newton_raphson.jl")
-include("lda/term_score.jl")
 include("lda.jl")
 
 # NMF
