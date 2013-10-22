@@ -55,5 +55,5 @@ function ldaimpl{I <: Integer}(words::Matrix{I}, k::I, max_iter::I)
         @printf("LDA | it: %i; ppl: %f\n", it, sum(t_conv))
     end
 
-    (alpha, beta, gam, phi)
+    LDA(alpha, beta, gam, phi)
 end
