@@ -44,7 +44,10 @@ function newton_raphson{F <: FloatingPoint}(
         # There is no sense of a negative parameter for the Dirichlet
         # distribution.
         if any(alpha .< 0)
-            return newton_raphson(gammas, ini_alpha / 10)
+            ini_alpha /= 10
+            alpha = copy(ini_alpha)
+            palph = zeros(K)
+            continue
         end
 
         # Test of convergence if we already have done an iteration.
