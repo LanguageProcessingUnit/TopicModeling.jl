@@ -19,6 +19,9 @@ include("lda.jl")
 # NMF
 include("nmf.jl")
 
+# LSI
+include("lsa.jl")
+
 # Types
 include("types.jl")
 include("topics.jl")
@@ -32,9 +35,9 @@ include("measure.jl")
 include("clustering.jl")
 
 # methods
-export lda, nmf, getTopics, cluster, topics, mixture, perplexity
+export lda, nmf, lsa, getTopics, cluster, topics, mixture, perplexity
 
 # types
-export LDA, NMF, Topic
+export LDA, NMF, LSA, Topic
 
 end # module

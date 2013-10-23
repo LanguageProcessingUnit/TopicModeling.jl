@@ -9,13 +9,18 @@ end
 
 
 # Imported from DimensionalityReduction package
+# - W::Matrix{Float64}
+# - H::Matrix{Float64}
+# - iterations::Int
+# - accuracy::Float64
 NMF = DimensionalityReduction.NMF
-#type NMF
-#    W::Matrix{Float64}
-#    H::Matrix{Float64}
-#    iterations::Int
-#    accuracy::Float64
-#end
+
+
+type LSA
+    U::Matrix
+    S::Vector
+    V::Matrix
+end
 
 
 type Topic
@@ -32,7 +37,9 @@ end
 
 # Accessors for mixture and topics
 mixture(m::LDA) = m.gamma
-topics(m::LDA) = m.beta
-
 mixture(m::NMF) = m.W
+mixture(m::LSA) = m.U
+
+topics(m::LDA) = m.beta
 topics(m::NMF) = m.H
+topics(m::LSA) = m.V
