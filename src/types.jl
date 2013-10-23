@@ -28,3 +28,11 @@ type Clustering
     documents::Vector
     clusters::Vector
 end
+
+
+# Accessors for mixture and topics
+mixture(m::LDA) = m.gamma
+topics(m::LDA) = m.beta
+
+mixture(m::NMF) = m.W
+topics(m::NMF) = m.H

@@ -7,5 +7,5 @@ function cluster(mixture::Matrix, documents::Vector, k)
     res
 end
 
-cluster(model::LDA, documents, k) = cluster(model.gamma, documents, k)
-cluster(model::NMF, documents, k) = cluster(model.W, documents, k)
+cluster(model::LDA, documents, k) = cluster(mixture(model), documents, k)
+cluster(model::NMF, documents, k) = cluster(mixture(model), documents, k)

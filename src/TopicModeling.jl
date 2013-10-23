@@ -31,7 +31,7 @@ include("topics.jl")
 include("clustering.jl")
 
 # methods
-export lda, nmf, getTopics, cluster
+export lda, nmf, getTopics, cluster, topics, mixture
 
 # types
 export LDA, NMF, Topic

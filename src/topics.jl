@@ -18,10 +18,10 @@ end
 
 
 function getTopics(model::LDA, terms::Vector, nbtopics::Integer, topwords::Integer)
-    extractFromBeta(computeTermScore(model.beta), terms, nbtopics, topwords)
+    extractFromBeta(computeTermScore(topics(model)), terms, nbtopics, topwords)
 end
 
 
 function getTopics(model::NMF, terms::Vector, nbtopics::Integer, topwords::Integer)
-    extractFromBeta(model.H, terms, nbtopics, topwords)
+    extractFromBeta(topics(model), terms, nbtopics, topwords)
 end
