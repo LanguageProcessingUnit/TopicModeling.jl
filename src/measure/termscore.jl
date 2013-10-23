@@ -13,6 +13,9 @@ function computeTermScore(beta::Matrix)
         if isnan(x)
             return 0.0
         end
+        if isinf(x)
+            return 0.0
+        end
         return x
     end
     beta_c
