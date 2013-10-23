@@ -1,19 +1,11 @@
 
-
-function cluster(model::LDA, documents, k)
+function cluster(mixture::Matrix, documents::Vector, k)
     res = {}
     for i in 1:size(documents, 1)
-        d = documents[i]
-        push!(res, (findmax(model.gamma[i,:])[2], split(d, "/")[end]))
+        push!(res, (findmax(mixture[i,:])[2], documents[i]))
     end
     res
 end
 
-function cluster(model::NMF, documents, k)
-    res = {}
-    for i in 1:size(documents, 1)
-        d = documents[i]
-        push!(res, (findmax(model.W[i,:])[2], split(d, "/")[end]))
-    end
-    res
-end
+cluster(model::LDA, documents, k) = cluster(model.gamma, documents, k)
+cluster(model::NMF, documents, k) = cluster(model.W, documents, k)

@@ -1,8 +1,5 @@
 
-function variational_inference{F <: FloatingPoint, I <: Integer}(
-    alpha::Vector{F},
-    beta::Matrix{F},
-    w::Vector{I})
+function variational_inference(alpha::Vector, beta::Matrix, w::Vector)
 
     """
     Optimize the free varational parameters phi and gamma

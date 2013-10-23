@@ -1,12 +1,12 @@
 
 # Define a vectorized version of trigamma
-function trigamma{F <: FloatingPoint}(x::F)
+function trigamma(x)
     polygamma(1, x)
 end
 @vectorize_1arg FloatingPoint trigamma
 
 
-function newton_raphson{F <: FloatingPoint}(gammas::Matrix{F})
+function newton_raphson(gammas::Matrix)
     """
         Wrapper over the newton raphson algorithm to
         initialize alpha
@@ -16,9 +16,8 @@ function newton_raphson{F <: FloatingPoint}(gammas::Matrix{F})
     newton_raphson(gammas, ini_alpha)
 end
 
-function newton_raphson{F <: FloatingPoint}(
-    gammas::Matrix{F},
-    ini_alpha::Vector{F})
+
+function newton_raphson(gammas::Matrix, ini_alpha::Vector)
 
     """
         Use the newton & raphson method to find alpha

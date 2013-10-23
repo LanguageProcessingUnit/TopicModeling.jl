@@ -1,7 +1,5 @@
 
-function parameter_estimation{F <: FloatingPoint}(
-    gam::Matrix{F},
-    phi::Array{F, 3})
+function parameter_estimation{T}(gam::Matrix, phi::Array{T, 3})
 
     """
     Things to know:

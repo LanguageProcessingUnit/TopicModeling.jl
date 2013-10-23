@@ -1,6 +1,6 @@
 
 
-function ldaimpl{I <: Integer}(words::Matrix{I}, k::I, max_iter::I)
+function ldaimpl(words::Matrix, k::Integer, max_iter::Integer)
     """
     Train the Latent Dirichlet Allocation model on the corpus of
     documents.
@@ -10,7 +10,7 @@ function ldaimpl{I <: Integer}(words::Matrix{I}, k::I, max_iter::I)
     V = number of words.
     """
 
-    (M, V) = size(words)
+    M, V = size(words)
 
     # We first need to create vectors from our text corpus.
     phi = zeros(Float64, M, V, k)
@@ -47,7 +47,7 @@ function ldaimpl{I <: Integer}(words::Matrix{I}, k::I, max_iter::I)
         old_t_conv = t_conv
 
         t_conv = perplexity(words, beta, gam)
-        @printf("LDA | it: %i; ppl: %f\n", it, sum(t_conv))
+        println("LDA | it: $(it); ppl: $(sum(t_conv))")
     end
 
     LDA(alpha, beta, gam, phi)

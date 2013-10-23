@@ -19,12 +19,12 @@ NMF = DimensionalityReduction.NMF
 
 
 type Topic
-    words::Vector{Any}
-    coeffs::Vector{Any}
+    words::Vector
+    coeffs::Vector
 end
 
 
 type Clustering
-    documents
-    clusters
+    documents::Vector
+    clusters::Vector
 end
