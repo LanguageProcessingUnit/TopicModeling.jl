@@ -5,23 +5,14 @@ function argsort(x)
 end
 
 
-function extractFromBeta(beta::Matrix, terms::Vector, t::Integer, w::Integer)
-    topics = {}
+function getTopics(model, terms::Vector, t::Integer, w::Integer)
+    res = {}
+    beta = topics(model)
     for i = 1:t
         sortedIndex = argsort(beta[i, :])[1:w]
         words = [terms[j] for j in sortedIndex]
         coeffs = [beta[i, j] for j in sortedIndex]
-        push!(topics, Topic(words, coeffs))
+        push!(res, Topic(words, coeffs))
     end
-    topics
-end
-
-
-function getTopics(model::LDA, terms::Vector, nbtopics::Integer, topwords::Integer)
-    extractFromBeta(computeTermScore(topics(model)), terms, nbtopics, topwords)
-end
-
-
-function getTopics(model::NMF, terms::Vector, nbtopics::Integer, topwords::Integer)
-    extractFromBeta(topics(model), terms, nbtopics, topwords)
+    res
 end
