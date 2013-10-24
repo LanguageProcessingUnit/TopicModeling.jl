@@ -5,9 +5,10 @@ end
 
 
 function computeTermScore(beta::Matrix)
-    beta_c = copy(beta) + eps(Float32)
+    beta += eps(Float64)
+    beta_c = copy(beta)
     for k = 1:size(beta, 1), v = 1:size(beta, 2)
-        beta_c[k, v] = termscore(beta, k, v)
+        beta_c[k, v] = termscore(beta_c, k, v)
     end
     map!(beta_c) do x
         if isnan(x)

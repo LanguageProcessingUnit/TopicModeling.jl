@@ -42,4 +42,4 @@ mixture(m::LSA) = m.U
 
 topics(m::LDA) = m.beta
 topics(m::NMF) = m.H
-topics(m::LSA) = m.V
+topics(m::LSA) = m.V'
