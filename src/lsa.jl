@@ -27,8 +27,6 @@ function lsa(d::DocumentTermMatrix, k)
     U = normresult!(U)
     V = normresult!(V)
 
-    println(V)
-
     LSA(U, S, V)
 end
 
