@@ -16,7 +16,7 @@ end
 NMF = DimensionalityReduction.NMF
 
 
-type LSA
+immutable type LSA
     U::Matrix
     S::Vector
     V::Matrix
@@ -38,7 +38,7 @@ end
 # Accessors for mixture and topics
 mixture(m::LDA) = m.gamma
 mixture(m::NMF) = m.W
-mixture(m::LSA) = m.U
+mixture(m::LSA) = m.U'
 
 topics(m::LDA) = m.beta
 topics(m::NMF) = m.H
