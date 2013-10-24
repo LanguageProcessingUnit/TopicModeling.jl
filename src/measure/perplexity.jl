@@ -1,5 +1,4 @@
-
-function perplexity(words::Matrix, pw::Matrix, pd::Matrix)
+function perplexity(words::Matrix, pw, pd)
     """
     pw is corresponding to P(w|params): distribution of topics over words.
     pd is corresponding to P(d|params): distribution of topics over

@@ -9,10 +9,6 @@ using DimensionalityReduction
 require("Clustering")
 using Clustering
 
-# Measures
-include("measure/perplexity.jl")
-include("measure/termscore.jl")
-
 # LDA
 include("lda/lda.jl")
 include("lda/estimation.jl")
@@ -30,11 +26,16 @@ include("lsa.jl")
 include("types.jl")
 include("topics.jl")
 
+# Measures
+include("measure/perplexity.jl")
+include("measure/termscore.jl")
+include("measure.jl")
+
 # Clustering
 include("clustering.jl")
 
 # methods
-export lda, nmf, lsa, getTopics, cluster, topics, mixture
+export lda, nmf, lsa, getTopics, cluster, topics, mixture, perplexity
 
 # types
 export LDA, NMF, LSA, Topic
