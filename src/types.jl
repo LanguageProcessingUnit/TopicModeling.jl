@@ -8,12 +8,10 @@ type LDA{F <: FloatingPoint}
 end
 
 
-# Imported from DimensionalityReduction package
-# - W::Matrix{Float64}
-# - H::Matrix{Float64}
-# - iterations::Int
-# - accuracy::Float64
-NMF = DimensionalityReduction.NMF
+immutable type NMF
+    W
+    H
+end
 
 
 immutable type LSA
@@ -38,7 +36,7 @@ end
 # Accessors for mixture and topics
 mixture(m::LDA) = m.gamma
 mixture(m::NMF) = m.W
-mixture(m::LSA) = m.U'
+mixture(m::LSA) = m.U
 
 topics(m::LDA) = m.beta
 topics(m::NMF) = m.H

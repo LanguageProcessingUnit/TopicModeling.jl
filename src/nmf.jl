@@ -4,5 +4,5 @@
 #
 ##############################################################################
 
-nmf(d::DocumentTermMatrix, k) = DimensionalityReduction.nmf(dtm(d, :dense), k)
+nmf(d::DocumentTermMatrix, k) = factorize(dtm(d, :dense), k)
 nmf(crps::Corpus, k) = nmf(DocumentTermMatrix(crps), k)

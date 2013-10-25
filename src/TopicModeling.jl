@@ -1,13 +1,8 @@
 module TopicModeling
 
-require("TextAnalysis")
 using TextAnalysis
-
-require("DimensionalityReduction")
-using DimensionalityReduction
-
-require("Clustering")
 using Clustering
+using Devectorize
 
 # LDA
 include("lda/lda.jl")
@@ -17,6 +12,8 @@ include("lda/newton_raphson.jl")
 include("lda.jl")
 
 # NMF
+include("nmf/random_vcol.jl")
+include("nmf/nmf.jl")
 include("nmf.jl")
 
 # LSI
